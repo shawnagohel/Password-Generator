@@ -1,41 +1,105 @@
-// Assignment code here
-window.alert("This is an alert! JavaScript is running!");
+// DOM Elements
+const resultEl = document.getElementById('password');
+const lengthEl = document.getElementById('length');
+const uppercaseEl = document.getElementById('uppercase');
+const lowercaseEl = document.getElementById('lowercase');
+const numbersEl = document.getElementById('numbers');
+const symbolsEl = document.getElementById('symbols');
+const generateEl = document.getElementById('generate');
 
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+const randomFunc = {
+    lower: getRandomLower,
+    upper: getRandomUpper,
+    number: getRandomNumber,
+    symbol: getRandomSymbol
+};
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+// Event Listener
+generateEl.addEventListener('click', () => {
+    const length = +lengthEl.value;
+    const hasLower = lowercaseEl.checked;
+    const hasUpper = uppercaseEl.checked;
+    const hasNumber = numbersEl.checked;
+    const hasSymbol = symbolsEl.checked;
 
-  passwordText.value = password;
+    resultEl.innerText = generatePassword(
+        hasLower,
+        hasUpper,
+        hasNumber,
+        hasSymbol,
+        length
+    );
+});
+
+// Generate Password Function 
+function generatePassword(lower, upper, number, symbol, length) {
+    // 1. password var
+    // 2. remove unchecked boxes
+    // 3. loop over length
+    // 4. call generator for each class
+    // 5. add final password to the results box
+
+let generatedPassword = '';
+console.log("generatedPassword = " , generatedPassword);
+
+console.log("LENGTH ", length);
+
+
+const typesCount =  lower  + upper  + number + symbol;
+
+ console.log('typesCount: ', typesCount);
+
+const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter
+(
+    item => Object.values(item)[0]
+);
+
+ console.log('typesArr: ', typesArr); 
+
+if(typesCount === 0) {
+    return '';
+    }
+
+console.log("generatedPassword = " , generatedPassword);
+
+
+for(let i=0; i < length; i += typesCount) {
+    typesArr.forEach(type => {
+        const funcName = Object.keys(type)[0];
+        // console.log('funcName: ', funcName);
+        console.log("random func = " , randomFunc[funcName]);
+
+        generatedPassword += randomFunc[funcName]();
+        });
+    }
+
+
+const finalPassword = generatedPassword.slice(0, length);
+
+return finalPassword;
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// Generator Functions to allow user to choose different options
+
+function getRandomLower(){
+    console.log("IN getRandomLower");
+
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
+
+function getRandomUpper(){
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+
+function getRandomNumber(){
+    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+}
+
+function getRandomSymbol() {
+    const symbols = '!@#$%^&*(){}[]==,./<>';
+    return symbols[Math.floor(Math.random() * symbols.length)];
+}
 
 
-var el_down = document.getElementById("geeks"); 
-  
-/* Function to generate combination of password */ 
-function generateP() { 
-    var pass = ''; 
-    var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +  
-            'abcdefghijklmnopqrstuvwxyz0123456789@#$'; 
-      
-    for (i = 1; i <= 8; i++) { 
-        var char = Math.floor(Math.random() 
-                    * str.length + 1); 
-          
-        pass += str.charAt(char) 
-    } 
-      
-    return pass; 
-} 
-
-function gfg_Run() { 
-    el_down.innerHTML = generateP(); 
-} 
