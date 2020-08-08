@@ -24,6 +24,8 @@ THEN the password is either displayed in an alert or written to the page
 
 
 # LINK TO DEPLOY
-
+https://shawnagohel.github.io/Password-Generator/
 
 # SCREENSHOT 
+
+
