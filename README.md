@@ -28,4 +28,9 @@ https://shawnagohel.github.io/Password-Generator/
 
 # SCREENSHOT 
 
-https://github.com/shawnagohel/Password-Generator/blob/master/images/Screenshot_Password_Generator.png
+https://github.com/shawnagohel/Password-Generator/blob/master/images/Screenshot_Password_Generator_Start.png
+
+https://github.com/shawnagohel/Password-Generator/blob/master/images/Screenshot_Password_Generator_unchecked_box.png
+
+https://github.com/shawnagohel/Password-Generator/blob/master/images/Screenshot_Password_Generator_73_char.png
+
