@@ -51,6 +51,7 @@ function generatePassword(lower, upper, number, symbol, length) {
 
     if(length <8 || length > 128){
         alert("It is recommended to have a password between 8 and 128 characters long! Please try again.");
+        return resultPass;
     }
 
 
