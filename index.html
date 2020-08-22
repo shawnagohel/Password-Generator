@@ -26,7 +26,7 @@
         <div class="settings">
             <div class="setting">
                 <label for="length">Password Length (Between 8-128):</label>
-                <input type="number" id="length" min="8" max="128" value="128"  />
+                <input type="number" id="length" min="8" max="128" value="8"  />
             </div>
             <div class="setting">
                 <label for="uppercase">Include Uppercase Letters</label>
@@ -48,18 +48,18 @@
         </div>
             <hr>
             <!-- Output area where code will be visible to user-->
-            <textarea readonly id="password" placeholder="Your Secure Password"
+            <textarea readonly id="password" placeholder="Your Secure Password" min="8" max="120"
                 aria-label="Generated Password"></textarea>
             <hr>
             <div>
                 <!-- Button -->
                 <div>
-        <button class="btn btn-large" id="generate">Generate</button>
+        <button class="btn btn-large" id="generate" >Generate Password</button>
                 </div>
             </div>
         </div>
     </div>
     <!-- Link to the Javascript document-->
-    <script src="script.js"></script>
+    <script src="updatesg.js"></script>
 </body>
 </html>
